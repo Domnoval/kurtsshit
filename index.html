@@ -1,123 +1,71 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Twin Cities CYG</title>
-    <meta
-      name="description"
-      content="Twin Cities CYG — site scaffold pending the source design file."
-    />
-    <style>
-      :root {
-        color-scheme: light dark;
-        --bg: #f7f5f0;
-        --fg: #1b1b1b;
-        --muted: #5a5a5a;
-        --accent: #8a1c1c;
-        --rule: rgba(0, 0, 0, 0.1);
-      }
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --bg: #141414;
-          --fg: #f2efe8;
-          --muted: #b9b4a8;
-          --accent: #e86a6a;
-          --rule: rgba(255, 255, 255, 0.12);
-        }
-      }
-      * {
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        background: var(--bg);
-        color: var(--fg);
-        font-family:
-          ui-serif, Georgia, "Iowan Old Style", "Apple Garamond", Baskerville,
-          "Times New Roman", serif;
-        line-height: 1.55;
-        -webkit-font-smoothing: antialiased;
-      }
-      main {
-        max-width: 720px;
-        margin: 0 auto;
-        padding: 10vh 6vw 12vh;
-      }
-      .eyebrow {
-        font-family:
-          ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-        font-size: 0.75rem;
-        letter-spacing: 0.22em;
-        text-transform: uppercase;
-        color: var(--muted);
-        margin: 0 0 1rem;
-      }
-      h1 {
-        font-size: clamp(2.25rem, 6vw, 3.75rem);
-        line-height: 1.05;
-        margin: 0 0 1.25rem;
-        letter-spacing: -0.01em;
-      }
-      p {
-        font-size: 1.125rem;
-        color: var(--fg);
-      }
-      p.muted {
-        color: var(--muted);
-      }
-      hr {
-        border: 0;
-        border-top: 1px solid var(--rule);
-        margin: 2.5rem 0;
-      }
-      .tag {
-        display: inline-block;
-        font-family:
-          ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-        font-size: 0.75rem;
-        padding: 0.25rem 0.6rem;
-        border: 1px solid var(--rule);
-        border-radius: 999px;
-        color: var(--muted);
-      }
-      footer {
-        font-family:
-          ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-        font-size: 0.8rem;
-        color: var(--muted);
-        margin-top: 4rem;
-      }
-      a {
-        color: var(--accent);
-      }
-    </style>
-  </head>
-  <body>
-    <main>
-      <p class="eyebrow">Twin Cities CYG</p>
-      <h1>Placeholder scaffold.</h1>
-      <p>
-        This file is a temporary scaffold. The source design
-        <em>Twin Cities CYG Website.html</em> could not be fetched from the
-        provided design URL, so the real layout, copy, palette, and imagery are
-        not yet reflected here.
-      </p>
-      <hr />
-      <p class="muted">
-        Once the design file is accessible (see <code>README.md</code> for
-        details on the blocker), this scaffold will be replaced with an
-        implementation that follows the spec: structure, typography, color
-        tokens, section copy, and assets.
-      </p>
-      <footer>
-        <span class="tag">scaffold</span>
-        &nbsp;pending design fetch
-      </footer>
-    </main>
-  </body>
+<head>
+<meta charset="utf-8">
+<title>TCCYG — Twin Cities Concrete Yard & Garden</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Hand-cast concrete monoliths, LED fissures, and living gardens. Twin Cities Concrete Yard & Garden — Minneapolis / Saint Paul." />
+<link rel="icon" href="assets/logo-icon.png" />
+<link rel="stylesheet" href="hero-styles.css" />
+<link rel="stylesheet" href="site-styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+</head>
+<body class="site">
+<div id="app"></div>
+
+<script type="text/babel" src="Wordmark.jsx"></script>
+<script type="text/babel" src="HeroScene.jsx"></script>
+<script type="text/babel" src="Sections.jsx"></script>
+
+<script type="text/babel" data-presets="react">
+const { useState } = React;
+
+const DEFAULTS = {
+  "eyebrow": "EST. MINNEAPOLIS · SAINT PAUL",
+  "titleLine1": "BE SEEN. BE FOUND.",
+  "titleLine2": "BE LIT.",
+  "subtitle": "Hand-cast concrete monoliths, LED fissures, and living gardens — one massive installation at a time.",
+  "ctaPrimary": "COMMISSION A PIECE",
+  "ctaSecondary": "VIEW PORTFOLIO",
+  "focalText": "1371",
+  "showNumber": true,
+  "nav": [
+    {"label":"WORK","href":"#work"},
+    {"label":"PROCESS","href":"#process"},
+    {"label":"MATERIALS","href":"#materials"},
+    {"label":"CONTACT","href":"#contact","cta":true}
+  ],
+  "photo": "rock-1371",
+  "embers": true,
+  "statusText": "Booking spring 2026",
+  "sideLabel": "Studio № 001",
+  "sideValue": "44.9778° N / 93.2650° W",
+  "wordmark": {
+    "primary": "TCCYG",
+    "secondary": "Twin Cities Concrete · Yard & Garden"
+  }
+};
+
+function App() {
+  const [cfg] = useState(DEFAULTS);
+  return (
+    <>
+      <a id="top" />
+      <div className="stage">
+        <HeroScene cfg={cfg} variant="classic" />
+      </div>
+      <SectionWork />
+      <SectionProcess />
+      <SectionMaterials />
+      <SectionCommission />
+      <Footer />
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('app')).render(<App />);
+</script>
+</body>
 </html>
