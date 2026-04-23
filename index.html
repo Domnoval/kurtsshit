@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TCCYG — Twin Cities Concrete Yard & Garden</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Hand-cast concrete monoliths, LED fissures, and living gardens. Twin Cities Concrete Yard & Garden — Minneapolis / Saint Paul." />
+<link rel="icon" href="assets/logo-icon.png" />
+<link rel="stylesheet" href="hero-styles.css" />
+<link rel="stylesheet" href="site-styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+</head>
+<body class="site">
+<div id="app"></div>
+
+<script type="text/babel" src="Wordmark.jsx"></script>
+<script type="text/babel" src="HeroScene.jsx"></script>
+<script type="text/babel" src="Sections.jsx"></script>
+
+<script type="text/babel" data-presets="react">
+const { useState } = React;
+
+const DEFAULTS = {
+  "eyebrow": "EST. MINNEAPOLIS · SAINT PAUL",
+  "titleLine1": "BE SEEN. BE FOUND.",
+  "titleLine2": "BE LIT.",
+  "subtitle": "Hand-cast concrete monoliths, LED fissures, and living gardens — one massive installation at a time.",
+  "ctaPrimary": "COMMISSION A PIECE",
+  "ctaSecondary": "VIEW PORTFOLIO",
+  "focalText": "1371",
+  "showNumber": true,
+  "nav": [
+    {"label":"WORK","href":"#work"},
+    {"label":"PROCESS","href":"#process"},
+    {"label":"MATERIALS","href":"#materials"},
+    {"label":"CONTACT","href":"#contact","cta":true}
+  ],
+  "photo": "rock-1371",
+  "embers": true,
+  "statusText": "Booking spring 2026",
+  "sideLabel": "Studio № 001",
+  "sideValue": "44.9778° N / 93.2650° W",
+  "wordmark": {
+    "primary": "TCCYG",
+    "secondary": "Twin Cities Concrete · Yard & Garden"
+  }
+};
+
+function App() {
+  const [cfg] = useState(DEFAULTS);
+  return (
+    <>
+      <a id="top" />
+      <div className="stage">
+        <HeroScene cfg={cfg} variant="classic" />
+      </div>
+      <SectionWork />
+      <SectionProcess />
+      <SectionMaterials />
+      <SectionCommission />
+      <Footer />
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('app')).render(<App />);
+</script>
+</body>
+</html>
